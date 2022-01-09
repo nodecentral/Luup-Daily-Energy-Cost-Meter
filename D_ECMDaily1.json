@@ -75,7 +75,7 @@
 						"Service": "urn:nodecentral-net:serviceId:ECMDaily1",
 						"Variable": "Cost Unit",
 						"Top": 60,
-						"Left": 180,
+						"Left": 160,
 						"Width": 75,
 						"Height": 20
 					}
