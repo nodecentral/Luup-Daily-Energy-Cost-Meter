@@ -61,9 +61,9 @@ If you choose to use/customise or just like this plug-in, feel free to say thank
 
 # Screenshots
 
-Once installed, you should see the device listed with your ExternalIP
+Once installed, you should see the device listed with your energy cost so far today
 
-![5C1CF281-A7C3-48E3-B202-23D79046C4D3](https://user-images.githubusercontent.com/4349292/148679659-c12b0ec0-0ea6-489b-aa93-022908f19161.jpeg)
+![F8B3C7D1-0188-4DB8-ADC5-426A514F4EA0](https://user-images.githubusercontent.com/4349292/148679688-6a56d7b3-c029-445b-81b5-c44ddfd09510.jpeg)
 
 # License
 
