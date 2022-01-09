@@ -30,19 +30,19 @@ This installation assumes you are running the latest version of Vera software.
 
 1. Upload the image .pngs file to the appropriate storage location on your controller. For Vera that's `/www/cmh/skins/default/icons`
 2. Upload the .xml and .json file in the repository to the appropriate storage location on your controller. For Vera that's via `Apps/Develop Apps/Luup files/`
-3. Create the decice instance via the appropriate route. For Vera that's Apps/Develop Apps/Create Device/ and entering "D_ECMDaily1.xml" into the Upnp Device Filename box. 
-4. Reload luup to establish the device
-5. Access the device and update the cost per KwH varaible (e.g. put 0.264 if 26.4p per KwH) , cost per day varaible (e.g. put 0.22 if 22p per day) and the Energy Meter varaible, which can either be the URL of remove device that returns a KwH value (e.g http://192.168.1.234:3480/data_request?id=variableget&DeviceNum=431&serviceId=urn:micasaverde-com:serviceId:EnergyMetering1&Variable=KWH) or the device ID of an local energy meter you have registed e.g "123"
+3. Create the decice instance via the appropriate route. For Vera that's `Apps/Develop Apps/Create Device` and enter "D_ECMDaily1.xml" into the Upnp Device Filename box. 
+4. Reload luup to establish the device, your first load should create an error, as certain key attributes/variables will be missing..
+5. To set it up correct;ly, access the device and update the `cost per KwH` varaible (e.g. put 0.264 if 26.4p per KwH) , `charge per day` variable (e.g. put 0.22 if 22p per day) and the `Energy Meter` varaible, which can either be the URL of remote device that returns a KwH value (e.g http://192.168.1.234:3480/data_request?id=variableget&DeviceNum=431&serviceId=urn:micasaverde-com:serviceId:EnergyMetering1&Variable=KWH) or the device ID of a local energy meter you have registered on your controller e.g "123" - Note - the latter configuration has not been tested yet..
 6. Reload luup again (just to be sure) and check the plugin status variable for your success or failure - if all is ok, you should be good to go :-)
 
-Next you need to create a couple of scenes to (i) set the frequency of KwH checks/updates during the day and (ii) to reset and log your daily usage report.
+Due to some challanges getting the luup.timer to work, i've not been able to sucessfully set up an period updates and archiving, so you will need to create a couple of scenes (i) to set the frequency of KwH checks/updates during the day and (ii) to reset and log your daily usage report at the end of each day.
 
-Start a new Day (change 1139 to your DeviceID)
+Enter the start a new day luup code in your function - (change 1139 to your DeviceID)
 ````
 ECMdaily = require("L_ECMDaily1") 
 ECMdaily.startNewDay(1139)
 ````
-Carry out a KwH usage update (change 1139 to your DeviceID)
+To carry out a KwH usage update, here's the luup code for that (remember to change 1139 to your DeviceID)
 ````
 ECMdaily = require("L_ECMDaily1") 
 ECMdaily.updateDaySoFar(1139) 
