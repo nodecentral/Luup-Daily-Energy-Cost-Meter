@@ -1,0 +1,99 @@
+{
+	"default_icon": "freeze_sensor_default.png",
+	"state_icons":[
+		{
+			"img": "../../../icons/plug.png",
+			"conditions": [
+				{
+			"service": "urn:nodecentral-net:serviceId:ECMDaily1",
+			"variable": "Icon",
+			"operator": "==",
+			"value": 1
+				}
+			]
+		},
+		{
+			"img": "../../../icons/error.png",
+			"conditions": [
+				{
+			"service": "urn:nodecentral-net:serviceId:ECMDaily1",
+			"variable": "Icon",
+			"operator": "==",
+			"value": 2
+				}
+			]
+		}
+	],
+	"x":"2",
+	"y":"4",
+	"inScene":"0",
+	"Tabs": [
+		{
+			"Label": {
+				"lang_tag": "ui7_tabname_control",
+				"text": "Control"
+			},
+			"Position": "0",
+			"TabType": "flash",
+			"top_navigation_tab": 1,
+			"ControlGroup":[
+				{
+					"id": "1",
+					"scenegroup": "1"
+				}
+			],
+			"SceneGroup":[
+				{
+					"id": "1",
+					"top": "1.5",
+					"left": "0.25",
+					"x": "1.5",
+					"y": "2"
+				}
+			],
+			"Control": [
+				{
+					"ControlGroup":"1",
+					"ControlType": "variable",
+					"top": "1",
+					"left": "0",
+					"Display": {
+						"Service": "urn:nodecentral-net:serviceId:ECMDaily1",
+						"Variable": "Day So Far Cost",
+						"Top": 60,
+						"Left": 145,
+						"Width": 75,
+						"Height": 20
+					}
+				},
+				{
+					"ControlGroup":"1",
+					"ControlType": "variable",
+					"top": "0",
+					"left": "0",
+					"Display": {
+						"Service": "urn:nodecentral-net:serviceId:ECMDaily1",
+						"Variable": "Cost Unit",
+						"Top": 60,
+						"Left": 180,
+						"Width": 75,
+						"Height": 20
+					}
+				}
+			]
+		},
+		{
+			"Label": {
+				"lang_tag": "ui7_advanced",
+				"text": "Advanced"
+			},
+			"Position": "1",
+			"TabType": "javascript",
+			"ScriptName": "shared.js",
+			"Function": "advanced_device"
+		}
+	],
+	"eventList2": [
+	],
+	"device_type": "urn:nodecentral-net:device:ECMDaily:1"
+	}

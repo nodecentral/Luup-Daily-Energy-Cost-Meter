@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<root xmlns="urn:schemas-upnp-org:device-1-0">
+  <specVersion>
+    <major>1</major>
+    <minor>0</minor>
+  </specVersion>
+  <device>
+    <deviceType>urn:nodecentral-net:device:ECMDaily:1</deviceType>
+    <friendlyName>ECM Daily Cost</friendlyName>
+    <Category_Num>88</Category_Num>
+    <SubCategory_Num>0</SubCategory_Num>
+    <staticJson>D_ECMDaily1.json</staticJson> 
+    <serviceList>
+      <service>
+        <serviceType>urn:schemas-nodecentral-net:service:ECMDaily:1</serviceType>
+        <serviceId>urn:nodecentral-net:serviceId:ECMDaily1</serviceId>
+        <SCPDURL>S_ECMDaily1.xml</SCPDURL>
+      </service>
+    </serviceList>
+    <implementationList>
+      <implementationFile>I_ECMDaily1.xml</implementationFile>
+    </implementationList>
+  </device>
+</root> 

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- 
+	I_ECMDaily1.xml; Vera/openLuup "ECMDaily" Plug-in 
+	V0.1 Dec 2021
+-->
+<implementation>
+	<functions> 
+		function initialiseECMDailyPlugin(lul_device)
+			luup.log("ECMDaily: Plugin STARTING-UP!")
+			ECMdaily = require("L_ECMDaily1")
+			ecmdailyKwHUpdates = ECMdaily.GoGetKwH
+			ecmdailyDailyUpdates = ECMdaily.DailyECMUpdate
+			return ECMdaily.ECMDailyStartUp(lul_device)
+		end
+	</functions>
+	<startup>initialiseECMDailyPlugin</startup>
+	<actionList>
+		<action>
+			<serviceId>urn:nodecentral-net:serviceId:ECMDaily1</serviceId>
+			<name>startNewDay</name>
+			<job>
+                ECMdaily.log("startNewDay")
+				return ECMdaily.startNewDay(lul_device)
+			</job>
+		</action>
+		<action>
+			<serviceId>urn:nodecentral-net:serviceId:ECMDaily1</serviceId>
+			<name>updateDaySoFar</name>
+			<job>
+                ECMdaily.log("updateDaySoFar")
+				return ECMdaily.updateDaySoFar(lul_device)
+			</job>
+		</action>
+	</actionList>
+</implementation>
+
+ 
