@@ -13,9 +13,6 @@ local function round(num, numDecimalPlaces)
 end
 
 function GoGetKwH(lul_device)
-	--local COM_SID = "urn:nodecentral-net:serviceId:EnergyCostMeter1"
-	--if requester == nil then requester = "Unknown" end
-	--log("GoGetKwH function called by " ..requester)
 	local EnergyMeter = luup.variable_get(COM_SID, "Energy Meter", lul_device)
 	if (EnergyMeter == "") then 
 		luup.variable_set(COM_SID, "PluginStatus", "ERROR: [Energy Meter] Missing! 3/4", lul_device)
@@ -27,10 +24,6 @@ function GoGetKwH(lul_device)
 		log("SUCCESS: [Energy Meter] value registered")
 		local status, KwHVal, code = luup.inet.wget(EnergyMeter)
 		log("GoGetKwH returned = " .. KwHVal .. " | Code = " .. code)
-		--local status, KwHVal, code = luup.inet.wget("http://192.168.102.22:3480/data_request?id=variableget&DeviceNum=431&serviceId=urn:micasaverde-com:serviceId:EnergyMetering1&Variable=KWH")
-		--local KwHVal = tostring(KwHVal)
-		--luup.variable_set(COM_SID ,"KwHlive", KwHVal , lul_device)
-		--luup.call_delay("ecmdailyKwHUpdates", 60)
 		return KwHVal
 	elseif string.match(EnergyMeter, "D%+") then 
 		luup.variable_set(COM_SID, "PluginStatus", "[Energy Meter] Registered! 4/4", lul_device)
@@ -98,7 +91,7 @@ function updateDaySoFar(lul_device)
 end
 
 local function logUsageCost(kwh, cost)
-	local filelog = "/www/DailyEnergy.txt"
+	local filelog = "/www/DailyEnergyCost.txt"
 	local outf = io.open(filelog, "a")
 	outf:write(os.date('%Y-%m-%d %H:%M:%S') .. ", " .. kwh .. ", " ..cost .. ", ")
 	--local filesize = outf:seek("end")
