@@ -63,8 +63,7 @@ If you choose to use/customise or just like this plug-in, feel free to say thank
 
 Once installed, you should see the device listed with your ExternalIP
 
-![3168B647-7CF9-4440-8E58-B5D9A2B63814](https://user-images.githubusercontent.com/4349292/148536263-f20b7416-9578-40cc-995c-447560da538e.jpeg)
-
+![5C1CF281-A7C3-48E3-B202-23D79046C4D3](https://user-images.githubusercontent.com/4349292/148679659-c12b0ec0-0ea6-489b-aa93-022908f19161.jpeg)
 
 # License
 
